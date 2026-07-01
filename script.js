@@ -1,3 +1,6 @@
+
+function __lf(s,w,h){var n=0,x=String(s);for(var i=0;i<x.length;i++){n=(n*31+x.charCodeAt(i))>>>0;}return 'https://loremflickr.com/'+w+'/'+h+'/wedding?lock='+(n%100000);}
+function __av(s){return 'https://i.pravatar.cc/200?u=velvetknot'+encodeURIComponent(String(s));}
 /* ============================================================
    The Velvet Knot — interactive features (vanilla JS)
    ============================================================ */
@@ -91,7 +94,7 @@
     var li = document.createElement("li");
     li.className = "gallery-item";
     li.setAttribute("data-style", item.style);
-    var url = "https://picsum.photos/seed/" + item.seed + "/640/800";
+    var url = "" + __lf(item.seed, 640, 800) + "";
     li.innerHTML =
       '<button class="gallery-btn" data-index="' + i + '" aria-label="View larger image: ' + item.title + ', ' + item.meta + '">' +
       '<img src="' + url + '" loading="lazy" width="640" height="800" alt="Wedding of ' + item.title + ' — ' + item.meta + '" />' +
@@ -144,7 +147,7 @@
   }
   function renderLightbox() {
     var item = portfolio[currentIndex];
-    lbImg.src = "https://picsum.photos/seed/" + item.seed + "/900/1100";
+    lbImg.src = "" + __lf(item.seed, 900, 1100) + "";
     lbImg.alt = "Wedding of " + item.title + " — " + item.meta;
     lbCaption.textContent = item.title + " — " + item.meta;
   }
@@ -265,7 +268,7 @@
     var li = document.createElement("li");
     li.className = "vendor-card";
     li.setAttribute("data-type", v.type);
-    var url = "https://picsum.photos/seed/" + v.seed + "/640/400";
+    var url = "" + __lf(v.seed, 640, 400) + "";
     li.innerHTML =
       '<img src="' + url + '" loading="lazy" width="640" height="400" alt="' + v.name + ', a ' + typeLabel[v.type].toLowerCase() + ' in ' + v.loc + '" />' +
       '<div class="vendor-body">' +
